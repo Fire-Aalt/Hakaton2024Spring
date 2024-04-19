@@ -1,5 +1,39 @@
 {
   "dependencies": {
+    "com.coffee.upm-git-extension": {
+      "version": "https://github.com/mob-sakai/UpmGitExtension.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8fc54a2cdf0c2169dd26852ea0fe202e11158f43"
+    },
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#2.5.4",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d057074f177b078e29f10dd511b54df48a8806ea"
+    },
+    "com.eflatun.scenereference": {
+      "version": "https://github.com/starikcetin/Eflatun.SceneReference.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.settings-manager": "2.0.1",
+        "com.unity.nuget.newtonsoft-json": "3.0.2"
+      },
+      "hash": "7dbcaf0327bcba279f2dcd07b824a693b1091beb"
+    },
+    "com.renderdream.gameessentials": {
+      "version": "https://github.com/Fire-Aalt/Unity-GameEssentials.git#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.eflatun.scenereference": "git+https://github.com/starikcetin/Eflatun.SceneReference.git#3.2.1",
+        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+      },
+      "hash": "0000ac84399132f372e7cfc0153baaf1a8a0ed38"
+    },
     "com.unity.2d.animation": {
       "version": "9.1.0",
       "depth": 1,
@@ -168,6 +202,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "14.0.10",
       "depth": 1,
@@ -202,6 +243,13 @@
     "com.unity.searcher": {
       "version": "4.9.2",
       "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.settings-manager": {
+      "version": "2.0.1",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -255,16 +303,6 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
-    },
-    "com.unity.visualscripting": {
-      "version": "1.9.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

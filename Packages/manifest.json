@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#2.5.4",
+    "com.eflatun.scenereference": "https://github.com/starikcetin/Eflatun.SceneReference.git#upm",
+    "com.renderdream.gameessentials": "https://github.com/Fire-Aalt/Unity-GameEssentials.git#main",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.2d": "2.0.0",
     "com.unity.ide.rider": "3.0.28",
@@ -9,7 +13,6 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
-    "com.unity.visualscripting": "1.9.2",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
