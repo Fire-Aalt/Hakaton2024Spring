@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc7520e14d82424d9e955c6e3595987, type: 3}
   m_Name: PlayerMovement
   m_EditorClassIdentifier: 
-  gravityScale: 6
+  gravityScale: 4
   fallGravityMult: 1.1
   maxFallSpeed: 22
   moveMaxSpeed: 4.5
@@ -22,6 +22,6 @@ MonoBehaviour:
   moveDeccelAmount: 33.333332
   accelInAir: 0.7
   deccelInAir: 0.7
-  jumpForce: 18
-  doubleJumpForce: 15
+  jumpForce: 15
+  doubleJumpForce: 14
   jumpCutVelocityMult: 0.4

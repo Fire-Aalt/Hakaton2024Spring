@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
     [Header("Properties")]
     [SerializeField] private int _coinValue;
 
-    private bool _canBeCollected;
+    private bool _canBeCollected = true;
     private bool _collected;
 
     public void Collect()

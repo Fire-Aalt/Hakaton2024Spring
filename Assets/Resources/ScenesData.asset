@@ -20,4 +20,6 @@ MonoBehaviour:
     mainScene:
       asset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
       guid: 8c9cfa26abfee488c85f1582747f6a02
-    additiveScenes: []
+    additiveScenes:
+    - asset: {fileID: 102900000, guid: af84c96f7efd0b84eac5808fc462d57f, type: 3}
+      guid: af84c96f7efd0b84eac5808fc462d57f

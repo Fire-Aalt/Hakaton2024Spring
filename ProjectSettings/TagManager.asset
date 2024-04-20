@@ -17,8 +17,8 @@ TagManager:
   - PlayerHurtbox
   - EnemyHitbox
   - EnemyHurtbox
-  - 
-  - 
+  - Collectable
+  - Interactable
   - 
   - 
   - 
@@ -38,6 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1468708665
+    locked: 0
+  - name: Ground
+    uniqueID: 3418308731
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Objects
+    uniqueID: 3234547231
+    locked: 0
+  - name: Player
+    uniqueID: 1666659761
+    locked: 0
+  - name: Enemy
+    uniqueID: 1373429359
     locked: 0
