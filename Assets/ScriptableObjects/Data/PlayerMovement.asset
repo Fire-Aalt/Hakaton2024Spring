@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc7520e14d82424d9e955c6e3595987, type: 3}
+  m_Name: PlayerMovement
+  m_EditorClassIdentifier: 
+  gravityScale: 6
+  fallGravityMult: 1.1
+  maxFallSpeed: 22
+  moveMaxSpeed: 4.5
+  moveAcceleration: 3
+  moveAccelAmount: 33.333332
+  moveDecceleration: 3
+  moveDeccelAmount: 33.333332
+  accelInAir: 0.7
+  deccelInAir: 0.7
+  jumpForce: 18
+  doubleJumpForce: 15
+  jumpCutVelocityMult: 0.4
