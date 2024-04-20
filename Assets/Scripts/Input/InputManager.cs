@@ -20,21 +20,12 @@ public class InputManager : Singleton<InputManager>
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        Vector2 rawMovementInput = context.ReadValue<Vector2>();
-        Vector2 calibratedMoveInput = new(ApplyDeadzone(rawMovementInput.x), ApplyDeadzone(rawMovementInput.y));
-        MoveEvent?.Invoke(calibratedMoveInput);
+        MovementInput(context.ReadValue<Vector2>());
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            JumpEvent?.Invoke();
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            JumpCancelEvent?.Invoke();
-        }
+        JumpInput(context.phase);
     }
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -65,6 +56,24 @@ public class InputManager : Singleton<InputManager>
         }
     }
     
+    public void MovementInput(Vector2 vector)
+    {
+        Vector2 calibratedMoveInput = new(ApplyDeadzone(vector.x), ApplyDeadzone(vector.y));
+        MoveEvent?.Invoke(calibratedMoveInput);
+    }
+
+    public void JumpInput(InputActionPhase phase)
+    {
+        if (phase == InputActionPhase.Performed)
+        {
+            JumpEvent?.Invoke();
+        }
+        if (phase == InputActionPhase.Canceled)
+        {
+            JumpCancelEvent?.Invoke();
+        }
+    }
+
     private float ApplyDeadzone(float input)
     {
         float mult = Mathf.Sign(input);
