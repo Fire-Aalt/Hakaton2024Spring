@@ -7,21 +7,14 @@ namespace Game
 {
     public class TouchInputUI : MonoBehaviour
     {
-        [SerializeField] private bool _isTouchEnabled;
+        private bool _isJumpPressed;
 
         private void Start()
         {
-#if UNITY_EDITOR
-            if (!_isTouchEnabled)
+            if (!InputManager.TouchInputEnabled)
             {
                 gameObject.SetActive(false);
             }
-#else
-            if (SystemInfo.deviceType != DeviceType.Handheld)
-            {
-                gameObject.SetActive(false);
-            }
-#endif
         }
 
         public void LeftArrowDown() => InputManager.Current.MovementInput(Vector2Int.left);
@@ -30,7 +23,22 @@ namespace Game
         public void RightArrowDown() => InputManager.Current.MovementInput(Vector2Int.right);
         public void RightArrowUp() => InputManager.Current.MovementInput(Vector2Int.zero);
 
-        public void JumpArrowDown() => InputManager.Current.JumpInput(InputActionPhase.Performed);
-        public void JumpArrowUp() => InputManager.Current.JumpInput(InputActionPhase.Canceled);
+        public void JumpArrowDown()
+        {
+            if (!_isJumpPressed)
+            {
+                InputManager.Current.JumpInput(InputActionPhase.Performed);
+                _isJumpPressed = true;
+            }
+        }
+
+        public void JumpArrowUp()
+        {
+            if (_isJumpPressed)
+            {
+                InputManager.Current.JumpInput(InputActionPhase.Canceled);
+                _isJumpPressed = false;
+            }
+        }
     }
 }

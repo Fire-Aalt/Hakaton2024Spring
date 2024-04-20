@@ -18,6 +18,11 @@ MonoBehaviour:
   sceneDependencies:
   - sceneType: 0
     mainScene:
+      asset: {fileID: 102900000, guid: 9b79caf01529c8845a09b64945abfcbd, type: 3}
+      guid: 9b79caf01529c8845a09b64945abfcbd
+    additiveScenes: []
+  - sceneType: 1
+    mainScene:
       asset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
       guid: 8c9cfa26abfee488c85f1582747f6a02
     additiveScenes:

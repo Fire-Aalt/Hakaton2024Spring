@@ -47,8 +47,8 @@ namespace Game
 
             if (Time.time > targetTime) 
             {
-                OnTimerDone?.Invoke();
                 StopTimer();
+                OnTimerDone?.Invoke();
             }
         }
     }

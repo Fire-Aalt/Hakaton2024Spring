@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class InputManager : Singleton<InputManager>
 {
+    public static bool TouchInputEnabled;
+
     public static event Action<Vector2> MoveEvent;
     public static event Action JumpEvent;
     public static event Action JumpCancelEvent;
@@ -15,8 +17,26 @@ public class InputManager : Singleton<InputManager>
     public static event Action OpenInventoryEvent;
     public static event Action CloseInventoryEvent;
 
+    [SerializeField] private bool _isTouchEnabled;
+
     [SerializeField][Range(0, 1)] private float minJoystickInput;
     [SerializeField][Range(0, 1)] private float maxJoystickInput;
+
+    protected override void Awake()
+    {
+        base.Awake();
+#if UNITY_EDITOR
+        if (_isTouchEnabled)
+        {
+            TouchInputEnabled = true;
+        }
+#else
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            TouchInputEnabled = true;
+        }
+#endif
+    }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
