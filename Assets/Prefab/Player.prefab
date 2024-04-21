@@ -140,6 +140,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4143742846984218321}
+  - {fileID: 4521929312964490800}
   m_Father: {fileID: 5155334826215030514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2227219726498107545
@@ -606,6 +607,54 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56054354, y: 1.746979}
   m_EdgeRadius: 0
+--- !u!1 &5724968162557031256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4521929312964490800}
+  - component: {fileID: 2911637973826218537}
+  m_Layer: 6
+  m_Name: BoostManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4521929312964490800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724968162557031256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8170292838680207890}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2911637973826218537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724968162557031256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d70dec39b82d24ca11dbf9f45de810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthUpgradeAmount: 1
+  _pointsDoubleMultiplier: 2
+  _pointsDoubleDuration: 30
+  _shieldDuration: 30
 --- !u!1 &6215130324278087096
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +887,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _defence: 0
-  _lowHealthPercent: 0.1
 --- !u!1 &7722083113249389993
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +968,7 @@ MonoBehaviour:
   _collectibleLayer:
     serializedVersion: 2
     m_Bits: 4096
+  CoinMultiplier: 1
 --- !u!1 &8025351934813480853
 GameObject:
   m_ObjectHideFlags: 0

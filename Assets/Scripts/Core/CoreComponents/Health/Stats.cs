@@ -36,25 +36,28 @@ namespace Game.CoreSystem
             CurrentHealth = Mathf.FloorToInt(MaxHealth * healthPercent);
         }
 
-        public virtual void IncreaseHealth(int amount)
+        public virtual void UpdateCurrentHealth(int amount)
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, MaxHealth);
+
+            if (amount < 0)
+            {
+                if (CurrentHealth <= 0)
+                {
+                    CurrentHealth = 0;
+
+                    OnDeath?.Invoke();
+                }
+                else
+                {
+                    OnHit?.Invoke();
+                }
+            }
         }
 
-        public virtual void DecreaseHealth(int amount)
+        public virtual void UpdateMaxHealth(int amount)
         {
-            CurrentHealth -= amount;
-
-            if (CurrentHealth <= 0)
-            {
-                CurrentHealth = 0;
-
-                OnDeath?.Invoke();
-            }
-            else
-            {
-                OnHit?.Invoke();
-            }
+            MaxHealth += amount;
         }
     }
 }

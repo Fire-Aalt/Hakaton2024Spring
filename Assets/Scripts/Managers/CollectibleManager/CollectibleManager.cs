@@ -13,6 +13,8 @@ namespace Game
         public bool CanCollect { get; set; }
         public int CoinValue { get; private set; }
 
+        public float CoinMultiplier = 1;
+
         private BoxCollider2D _collider;
         private Collider2D[] _results;
 
@@ -64,8 +66,9 @@ namespace Game
 
         public void ChangeCoinValue(int value)
         {
-            CoinValue += value;
-            OnCoinValueChanged?.Invoke(value);
+            int actualValue = Mathf.FloorToInt(value * CoinMultiplier);
+            CoinValue += actualValue;
+            OnCoinValueChanged?.Invoke(actualValue);
         }
     }
 }

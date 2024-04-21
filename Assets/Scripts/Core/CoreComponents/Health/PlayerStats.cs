@@ -5,44 +5,38 @@ namespace Game.CoreSystem
 {
     public class PlayerStats : Stats
     {
-        [SerializeField] private float _lowHealthPercent;
+        public static event Action<int> OnHealthInitialized;
 
-        public static event Action<int> OnIncreaseHealth, OnDecreaseHealth;
-        public static event Action<int, int> OnHealthChanged;
-        //public event Action OnLowHealth;
+        public static event Action<int> OnCurrentHealthChanged;
+        public static event Action<int> OnMaxHealthChanged;
 
         protected override bool ExposeProperties => true;
 
-        #region Health Funcs
-        public override void DecreaseHealth(int amount)
+        protected override void Start()
         {
-            base.DecreaseHealth(amount);
+            base.Start();
 
-            if (CurrentHealth == 0) 
+            OnHealthInitialized?.Invoke(MaxHealth);
+        }
+
+        #region Health Funcs
+        public override void UpdateCurrentHealth(int amount)
+        {
+            if (CurrentHealth == 0)
             {
                 return;
             }
-            else
-            {
-                //if (CurrentHealth <  _lowHealthPercent)
-                //{
-                //    OnLowHealth?.Invoke();
-                //}
-            }
+            base.UpdateCurrentHealth(amount);
 
-            OnDecreaseHealth?.Invoke(CurrentHealth);
-            OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+            OnCurrentHealthChanged?.Invoke(CurrentHealth);
         }
 
-        public override void IncreaseHealth(int amount)
+        public override void UpdateMaxHealth(int amount)
         {
-            base.IncreaseHealth(amount);
+            base.UpdateMaxHealth(amount);
 
-            OnIncreaseHealth?.Invoke(CurrentHealth);
-            OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+            OnMaxHealthChanged?.Invoke(MaxHealth);
         }
-
-
         #endregion
     }
 }

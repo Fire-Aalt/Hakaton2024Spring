@@ -48,7 +48,7 @@ namespace Game.CoreSystem
             OnHit?.Invoke();
 
             dealtDamage = CalculateDamage(amount, Stats.Defense, piercing);
-            Stats.DecreaseHealth(dealtDamage);
+            Stats.UpdateCurrentHealth(-dealtDamage);
             HitInvincibility();
 
             return true;

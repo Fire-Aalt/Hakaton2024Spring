@@ -9,6 +9,7 @@ namespace Game
 
     public enum CollectibleType
     {
-        Coin
+        Coin,
+        Boost
     }
 }
