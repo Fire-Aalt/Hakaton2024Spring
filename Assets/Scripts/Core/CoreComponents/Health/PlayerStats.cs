@@ -9,6 +9,7 @@ namespace Game.CoreSystem
 
         public static event Action<int> OnCurrentHealthChanged;
         public static event Action<int> OnMaxHealthChanged;
+        public static event Action OnPlayerDeath;
 
         protected override bool ExposeProperties => true;
 
@@ -28,6 +29,10 @@ namespace Game.CoreSystem
             }
             base.UpdateCurrentHealth(amount);
 
+            if (CurrentHealth == 0)
+            {
+                OnPlayerDeath?.Invoke();
+            }
             OnCurrentHealthChanged?.Invoke(CurrentHealth);
         }
 

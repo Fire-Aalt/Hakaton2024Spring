@@ -22,6 +22,6 @@ MonoBehaviour:
   moveDeccelAmount: 33.333332
   accelInAir: 0.7
   deccelInAir: 0.7
-  jumpForce: 15
+  jumpForce: 18
   doubleJumpForce: 14
   jumpCutVelocityMult: 0.4

@@ -48,7 +48,7 @@ namespace Game
             _hurtPlayer.StopFeedbacks();
             TransitionDuration = _healPlayer.TotalDuration;
             _healPlayer.PlayFeedbacks();
-
+            _image.sprite = _filledSprite;
             FillState = FillState.Full;
         }
 
@@ -57,7 +57,7 @@ namespace Game
             _healPlayer.StopFeedbacks();
             TransitionDuration = _hurtPlayer.TotalDuration;
             _hurtPlayer.PlayFeedbacks();
-
+            _image.sprite = _emptySprite;
             FillState = FillState.Empty;
         }
     }

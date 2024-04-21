@@ -32,6 +32,7 @@ namespace Game
     {
         HealthUpgrade,
         PointsDouble,
-        Shield
+        Shield,
+        AddHealth
     }
 }

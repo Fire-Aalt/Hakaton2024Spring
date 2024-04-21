@@ -19,11 +19,6 @@ namespace Game
         {
             base.Enter();
 
-            _landPos = player.transform.position;
-
-            Movement.SetVelocityZero();
-            player.transform.position = _landPos;
-            //player.FXController.LandFX(false);
         }
 
         public override void LogicUpdate()

@@ -10,7 +10,8 @@ namespace Game
         [SerializeField] private HealthUIManager _healthUIManager;
         [SerializeField] private BoostUI _pointsDouble;
         [SerializeField] private BoostUI _shield;
-        [SerializeField] private int _newRowThreshould;
+        [SerializeField] private int _newRowThreshouldFor1;
+        [SerializeField] private int _newRowThreshouldFor2;
 
         [SerializeField] private float _newRowHeight;
         [SerializeField] private float _firstRowHeight;
@@ -57,13 +58,31 @@ namespace Game
 
         private void CheckForAdaptive()
         {
-            if (Screen.width < _newRowThreshould)
+            int activeBuffs = 0;
+            activeBuffs += _pointsDouble.IsActive ? 1 : 0;
+            activeBuffs += _shield.IsActive ? 1 : 0;
+
+            if (activeBuffs == 1)
             {
-                _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _newRowHeight);
+                if (Screen.width < _newRowThreshouldFor1)
+                {
+                    _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _newRowHeight);
+                }
+                else
+                {
+                    _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _firstRowHeight);
+                }
             }
-            else
+            else if (activeBuffs == 2)
             {
-                _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _firstRowHeight);
+                if (Screen.width < _newRowThreshouldFor2)
+                {
+                    _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _newRowHeight);
+                }
+                else
+                {
+                    _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _firstRowHeight);
+                }
             }
         }
     }

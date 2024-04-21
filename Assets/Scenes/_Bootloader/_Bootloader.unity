@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 1171341255}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -929,6 +929,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d7622d9e-e4ae-469c-b4ad-85ca89f72517
     m_ActionName: Gameplay/SwitchFireMode[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1187968651}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8784f9e7-1944-41fb-826d-9869c21c7309
+    m_ActionName: Gameplay/Interact[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -946,7 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27c83da32702f549b75b01613164052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isTouchEnabled: 1
+  _isTouchEnabled: 0
   minJoystickInput: 0.15
   maxJoystickInput: 0.15
 --- !u!4 &1187968652

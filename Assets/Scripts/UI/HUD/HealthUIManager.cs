@@ -12,6 +12,7 @@ namespace Game
 
         private readonly List<HeartUI> _hearts = new();
         private int _currentHearts;
+        private int _maxHearts;
 
         public float RightBorder { get; private set; }
 
@@ -40,7 +41,6 @@ namespace Game
 
         private void HandleHealthInitialized(int startHealth)
         {
-            _currentHearts = startHealth;
             HandleMaxHealthChanged(startHealth);
         }
 
@@ -66,6 +66,8 @@ namespace Game
 
         private void HandleMaxHealthChanged(int newMaxHearts)
         {
+            _currentHearts += newMaxHearts - _maxHearts;
+            _maxHearts = newMaxHearts;
             foreach (HeartUI heart in _hearts)
             {
                 Destroy(heart.gameObject);
@@ -86,24 +88,6 @@ namespace Game
                 else
                 {
                     _hearts[i].Initialize(FillState.Empty);
-                }
-            }
-            var lastRect = _hearts[_hearts.Count - 1].RectTransform;
-            RightBorder = lastRect.position.x + lastRect.sizeDelta.x;
-        }
-
-        private void FullHealth(int maxHearts) => StartCoroutine(FullHealthCoroutine(maxHearts));
-
-        private IEnumerator FullHealthCoroutine(int maxHearts)
-        {
-            _currentHearts = maxHearts;
-
-            foreach (HeartUI heart in _hearts)
-            {
-                if (heart.FillState == FillState.Empty)
-                {
-                    heart.Heal();
-                    yield return new WaitForSeconds(heart.TransitionDuration);
                 }
             }
         }

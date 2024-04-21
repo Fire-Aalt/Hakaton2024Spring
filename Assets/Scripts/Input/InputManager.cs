@@ -30,8 +30,9 @@ public class InputManager : Singleton<InputManager>
         {
             TouchInputEnabled = true;
         }
+
 #else
-        if (SystemInfo.deviceType == DeviceType.Handheld)
+        if (Input.touchSupported)
         {
             TouchInputEnabled = true;
         }
@@ -50,14 +51,7 @@ public class InputManager : Singleton<InputManager>
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            InteractEvent?.Invoke();
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            InteractCancelEvent?.Invoke();
-        }
+        InteractInput(context.phase);
     }
 
     public void OnOpenUI(InputAction.CallbackContext context)
@@ -91,6 +85,18 @@ public class InputManager : Singleton<InputManager>
         if (phase == InputActionPhase.Canceled)
         {
             JumpCancelEvent?.Invoke();
+        }
+    }
+
+    public void InteractInput(InputActionPhase phase)
+    {
+        if (phase == InputActionPhase.Performed)
+        {
+            InteractEvent?.Invoke();
+        }
+        if (phase == InputActionPhase.Canceled)
+        {
+            InteractCancelEvent?.Invoke();
         }
     }
 

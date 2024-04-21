@@ -32,7 +32,6 @@ namespace Game
             {
                 case BoostType.HealthUpgrade:
                     playerStats.UpdateMaxHealth(1);
-                    playerStats.UpdateCurrentHealth(1);
                     break;
                 case BoostType.PointsDouble:
                     PointsDoubleTimeLeft += _pointsDoubleDuration;
@@ -43,6 +42,9 @@ namespace Game
                     ShieldTimeLeft += _shieldDuration;
                     ShieldTimeLeft = Mathf.Clamp(ShieldTimeLeft, 0, 99);
                     playerHurtbox.Invincibility.IsActionInvincible = true;
+                    break;
+                case BoostType.AddHealth:
+                    playerStats.UpdateCurrentHealth(1);
                     break;
             }
         }

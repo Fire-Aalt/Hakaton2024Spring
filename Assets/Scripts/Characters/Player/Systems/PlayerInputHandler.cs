@@ -8,7 +8,9 @@ namespace Game
     {
         public bool DisabledInput { get; private set; }
 
+        private Vector2 _cachedMoveInput;
         public Vector2 MoveInput { get; private set; }
+        private Vector2Int _cachedNormMoveInput;
         public Vector2Int NormMoveInput { get; private set; }
 
         public bool JumpInputDown { get; private set; }
@@ -42,14 +44,21 @@ namespace Game
                 MoveInput = Vector2.zero;
                 NormMoveInput = Vector2Int.zero;
             }
+            else
+            {
+                MoveInput = _cachedMoveInput;
+                NormMoveInput = _cachedNormMoveInput;
+            }
         }
 
         private void HandleMove(Vector2 rawMovementInput)
         {
+            _cachedMoveInput = rawMovementInput;
+            _cachedNormMoveInput = new Vector2Int(Math.Sign(rawMovementInput.x), Math.Sign(rawMovementInput.y));
             if (!DisabledInput)
             {
-                MoveInput = rawMovementInput;
-                NormMoveInput = new Vector2Int(Math.Sign(rawMovementInput.x), Math.Sign(rawMovementInput.y));
+                MoveInput = _cachedMoveInput;
+                NormMoveInput = _cachedNormMoveInput;
             }
         }
 

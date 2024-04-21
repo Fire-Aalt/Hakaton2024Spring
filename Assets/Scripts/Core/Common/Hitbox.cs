@@ -25,6 +25,7 @@ namespace Game
         [SerializeField, ShowIf("@_damageEntities && _applyKnockback")] private float knockbackStrength;
 
         public event Action<Collider2D> OnEnter, OnStay, OnExit;
+        public bool IsEnabled = true;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -55,9 +56,10 @@ namespace Game
 
         private void PerformHit(Collider2D collider)
         {
+            if (!IsEnabled) return;
+
             if (_deactivateOnZeroHealth && !_stats.IsAlive)
                 return;
-
             if (_damagePlayer || _damageEntities)
             {
                 if (collider.TryGetComponent(out IDamageable damageable))

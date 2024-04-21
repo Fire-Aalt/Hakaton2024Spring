@@ -27,7 +27,7 @@ namespace Game
 
             PreviousState = CurrentState;
             CurrentState = newState;
-            Debug.Log("New Player State: " + newState);
+
             CurrentState.EnterAnimationState(awaitAnimation);
             CurrentState.Enter();
         }

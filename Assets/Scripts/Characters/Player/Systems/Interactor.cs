@@ -7,9 +7,6 @@ namespace Game
 {
     public class Interactor : MonoBehaviour
     {
-        [Title("Data")]
-        [SerializeField] private UIManagerSO _UIManager;
-
         [Title("References")]
         [SerializeField] private Transform _center;
 
@@ -88,8 +85,6 @@ namespace Game
 
             PlayerInputHandler.Current.SetInputState(false);
 
-            _UIManager.StartInteractionProgressBar(_currentInteractable.HoldDuration, _currentInteractablePosition);
-
             float timer = 0f;
             while (timer < holdDuration && _interactInput && _currentInteractable == _closestInteractable)
             {
@@ -104,7 +99,6 @@ namespace Game
             else
             {
                 _currentInteractable.FailHold();
-                _UIManager.StopInteractionProgressBar(true);
             }
 
             PlayerInputHandler.Current.SetInputState(true);
