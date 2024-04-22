@@ -22,6 +22,8 @@ public class InputManager : Singleton<InputManager>
     [SerializeField][Range(0, 1)] private float minJoystickInput;
     [SerializeField][Range(0, 1)] private float maxJoystickInput;
 
+    private bool _inited = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -29,14 +31,18 @@ public class InputManager : Singleton<InputManager>
         if (_isTouchEnabled)
         {
             TouchInputEnabled = true;
-        }
-
-#else
-        if (Input.touchSupported)
-        {
-            TouchInputEnabled = true;
+            _inited = true;
         }
 #endif
+    }
+
+    private void Update()
+    {
+        if (!_inited && Input.touchCount > 0)
+        {
+            TouchInputEnabled = true;
+            _inited = true;
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)

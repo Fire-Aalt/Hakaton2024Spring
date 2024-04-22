@@ -169,8 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deactivateOnZeroHealth: 0
   _stats: {fileID: 0}
-  _onEnter: 1
-  _onStay: 0
+  _onEnter: 0
+  _onStay: 1
   _onExit: 0
   _damagePlayer: 1
   damageToPlayer: 1

@@ -10,8 +10,8 @@ namespace Game
         [SerializeField] private HealthUIManager _healthUIManager;
         [SerializeField] private BoostUI _pointsDouble;
         [SerializeField] private BoostUI _shield;
-        [SerializeField] private int _newRowThreshouldFor1;
-        [SerializeField] private int _newRowThreshouldFor2;
+        [SerializeField] private float _newRowThreshouldFor1;
+        [SerializeField] private float _newRowThreshouldFor2;
 
         [SerializeField] private float _newRowHeight;
         [SerializeField] private float _firstRowHeight;
@@ -62,9 +62,10 @@ namespace Game
             activeBuffs += _pointsDouble.IsActive ? 1 : 0;
             activeBuffs += _shield.IsActive ? 1 : 0;
 
+            float ratio = Screen.height / (float)Screen.width; 
             if (activeBuffs == 1)
             {
-                if (Screen.width < _newRowThreshouldFor1)
+                if (ratio > _newRowThreshouldFor1)
                 {
                     _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _newRowHeight);
                 }
@@ -75,7 +76,7 @@ namespace Game
             }
             else if (activeBuffs == 2)
             {
-                if (Screen.width < _newRowThreshouldFor2)
+                if (ratio > _newRowThreshouldFor2)
                 {
                     _rect.sizeDelta = new Vector2(_rect.sizeDelta.x, _newRowHeight);
                 }

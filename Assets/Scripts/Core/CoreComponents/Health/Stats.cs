@@ -58,6 +58,7 @@ namespace Game.CoreSystem
         public virtual void UpdateMaxHealth(int amount)
         {
             MaxHealth += amount;
+            CurrentHealth += amount;
         }
     }
 }

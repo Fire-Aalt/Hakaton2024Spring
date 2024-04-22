@@ -40,7 +40,7 @@ namespace Game
 
         public void Reload()
         {
-            SceneLoader.Current.LoadSceneWithTransition(SceneType.Gameplay, true);
+            SceneLoader.Current.LoadSceneWithTransition(SceneType.MainMenu);
         }
     }
 }
